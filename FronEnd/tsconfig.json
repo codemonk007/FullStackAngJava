@@ -1,0 +1,59 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "paths": {
+      "@custom-microFrontend/ui-Books": [
+        "dist/custom-micro-frontend/ui-books"
+      ],
+      "@custom-microFrontend/ui-Books/*": [
+        "dist/custom-micro-frontend/ui-books/*"
+      ],
+      "@custom-microFrontend/ui-groceries": [
+        "dist/custom-micro-frontend/ui-groceries"
+      ],
+      "@custom-microFrontend/ui-groceries/*": [
+        "dist/custom-micro-frontend/ui-groceries/*"
+      ],
+      "@custom-microFrontend/ui-electronic": [
+        "dist/custom-micro-frontend/ui-electronic"
+      ],
+      "@custom-microFrontend/ui-electronic/*": [
+        "dist/custom-micro-frontend/ui-electronic/*"
+      ],
+      "@custom-microFrontend/ui-hometown": [
+        "dist/custom-micro-frontend/ui-hometown"
+      ],
+      "@custom-microFrontend/ui-hometown/*": [
+        "dist/custom-micro-frontend/ui-hometown/*"
+      ],
+      "@custom-microFrontend/ui-cloths": [
+        "dist/custom-micro-frontend/ui-cloths"
+      ],
+      "@custom-microFrontend/ui-cloths/*": [
+        "dist/custom-micro-frontend/ui-cloths/*"
+      ],
+      "@custom-microFrontend/ui-footwear": [
+        "dist/custom-micro-frontend/ui-footwear"
+      ],
+      "@custom-microFrontend/ui-footwear/*": [
+        "dist/custom-micro-frontend/ui-footwear/*"
+      ]
+    }
+  }
+}

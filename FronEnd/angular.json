@@ -1,0 +1,341 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "FronEnd": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/FronEnd",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "FronEnd:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "FronEnd:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "FronEnd:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "karmaConfig": "src/karma.conf.js",
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "FronEnd-e2e": {
+      "root": "e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "FronEnd:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "FronEnd:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@custom-microFrontend/ui-Books": {
+      "root": "projects/custom-micro-frontend/ui-books",
+      "sourceRoot": "projects/custom-micro-frontend/ui-books/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/custom-micro-frontend/ui-books/tsconfig.lib.json",
+            "project": "projects/custom-micro-frontend/ui-books/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/custom-micro-frontend/ui-books/src/test.ts",
+            "tsConfig": "projects/custom-micro-frontend/ui-books/tsconfig.spec.json",
+            "karmaConfig": "projects/custom-micro-frontend/ui-books/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/custom-micro-frontend/ui-books/tsconfig.lib.json",
+              "projects/custom-micro-frontend/ui-books/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@custom-microFrontend/ui-groceries": {
+      "root": "projects/custom-micro-frontend/ui-groceries",
+      "sourceRoot": "projects/custom-micro-frontend/ui-groceries/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/custom-micro-frontend/ui-groceries/tsconfig.lib.json",
+            "project": "projects/custom-micro-frontend/ui-groceries/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/custom-micro-frontend/ui-groceries/src/test.ts",
+            "tsConfig": "projects/custom-micro-frontend/ui-groceries/tsconfig.spec.json",
+            "karmaConfig": "projects/custom-micro-frontend/ui-groceries/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/custom-micro-frontend/ui-groceries/tsconfig.lib.json",
+              "projects/custom-micro-frontend/ui-groceries/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@custom-microFrontend/ui-electronic": {
+      "root": "projects/custom-micro-frontend/ui-electronic",
+      "sourceRoot": "projects/custom-micro-frontend/ui-electronic/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/custom-micro-frontend/ui-electronic/tsconfig.lib.json",
+            "project": "projects/custom-micro-frontend/ui-electronic/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/custom-micro-frontend/ui-electronic/src/test.ts",
+            "tsConfig": "projects/custom-micro-frontend/ui-electronic/tsconfig.spec.json",
+            "karmaConfig": "projects/custom-micro-frontend/ui-electronic/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/custom-micro-frontend/ui-electronic/tsconfig.lib.json",
+              "projects/custom-micro-frontend/ui-electronic/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@custom-microFrontend/ui-hometown": {
+      "root": "projects/custom-micro-frontend/ui-hometown",
+      "sourceRoot": "projects/custom-micro-frontend/ui-hometown/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/custom-micro-frontend/ui-hometown/tsconfig.lib.json",
+            "project": "projects/custom-micro-frontend/ui-hometown/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/custom-micro-frontend/ui-hometown/src/test.ts",
+            "tsConfig": "projects/custom-micro-frontend/ui-hometown/tsconfig.spec.json",
+            "karmaConfig": "projects/custom-micro-frontend/ui-hometown/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/custom-micro-frontend/ui-hometown/tsconfig.lib.json",
+              "projects/custom-micro-frontend/ui-hometown/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@custom-microFrontend/ui-cloths": {
+      "root": "projects/custom-micro-frontend/ui-cloths",
+      "sourceRoot": "projects/custom-micro-frontend/ui-cloths/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/custom-micro-frontend/ui-cloths/tsconfig.lib.json",
+            "project": "projects/custom-micro-frontend/ui-cloths/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/custom-micro-frontend/ui-cloths/src/test.ts",
+            "tsConfig": "projects/custom-micro-frontend/ui-cloths/tsconfig.spec.json",
+            "karmaConfig": "projects/custom-micro-frontend/ui-cloths/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/custom-micro-frontend/ui-cloths/tsconfig.lib.json",
+              "projects/custom-micro-frontend/ui-cloths/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@custom-microFrontend/ui-footwear": {
+      "root": "projects/custom-micro-frontend/ui-footwear",
+      "sourceRoot": "projects/custom-micro-frontend/ui-footwear/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/custom-micro-frontend/ui-footwear/tsconfig.lib.json",
+            "project": "projects/custom-micro-frontend/ui-footwear/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/custom-micro-frontend/ui-footwear/src/test.ts",
+            "tsConfig": "projects/custom-micro-frontend/ui-footwear/tsconfig.spec.json",
+            "karmaConfig": "projects/custom-micro-frontend/ui-footwear/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/custom-micro-frontend/ui-footwear/tsconfig.lib.json",
+              "projects/custom-micro-frontend/ui-footwear/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "FronEnd"
+}
