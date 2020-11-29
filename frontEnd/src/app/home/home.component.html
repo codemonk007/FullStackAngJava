@@ -1,0 +1,10 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3" *ngFor="let item of coreService.services">
+            <figure>
+                <img class="icon-active" src="{{getIconPath(item, 'active')}}" width="65px" height="65px" alt="AppIcon">
+                <figcaption>{{item.name}}</figcaption>
+              </figure>          
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "paths": {
+      "books": [
+        "dist/books"
+      ],
+      "books/*": [
+        "dist/books/*"
+      ],
+      "cloths": [
+        "dist/cloths"
+      ],
+      "cloths/*": [
+        "dist/cloths/*"
+      ],
+      "electronic": [
+        "dist/electronic"
+      ],
+      "electronic/*": [
+        "dist/electronic/*"
+      ],
+      "footwear": [
+        "dist/footwear"
+      ],
+      "footwear/*": [
+        "dist/footwear/*"
+      ],
+      "groceries": [
+        "dist/groceries"
+      ],
+      "groceries/*": [
+        "dist/groceries/*"
+      ]
+    }
+  }
+}
